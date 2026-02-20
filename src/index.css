@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Futuristic Gradient Theme - Spectra Tech Solutions */
+    --background: 0 0% 100%;
+    --foreground: 225 71% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 71% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 71% 15%;
+
+    /* Primary: Deep Blue */
+    --primary: 225 100% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Magenta/Pink */
+    --secondary: 328 98% 48%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent: Cyan */
+    --accent: 190 100% 50%;
+    --accent-foreground: 225 71% 6%;
+
+    --muted: 225 30% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 225 30% 20%;
+    --input: 225 30% 20%;
+    --ring: 190 100% 50%;
+
+    --radius: 1rem;
+
+    /* Glass Effect Variables */
+    --glass-bg: 0 0% 100%;
+    --glass-opacity: 0.1;
+    --glass-border: 0 0% 100%;
+    --glass-border-opacity: 0.2;
+
+    /* Gradient Definitions */
+    --gradient-primary: linear-gradient(135deg, hsl(225, 100%, 28%) 0%, hsl(328, 98%, 48%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(225, 100%, 28%) 0%, hsl(225, 71%, 6%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(225, 100%, 28%), hsl(328, 98%, 48%));
+    --gradient-text: linear-gradient(90deg, hsl(190, 100%, 50%), hsl(328, 98%, 48%));
+    
+    /* Shadow & Glow */
+    --shadow-glass: 0 8px 32px 0 rgba(0, 24, 143, 0.37);
+    --shadow-glow: 0 0 40px rgba(0, 224, 255, 0.3);
+    --shadow-glow-pink: 0 0 40px rgba(236, 0, 140, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: white;
+    min-height: 100vh;
+  }
+
+  /* Glassmorphism Utility Classes */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(90deg, hsl(225, 100%, 28%), hsl(328, 98%, 48%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow Effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.5);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 20px rgba(236, 0, 140, 0.5);
+  }
+
+  /* Smooth Animations */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Scroll-triggered animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
